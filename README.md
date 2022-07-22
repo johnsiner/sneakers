@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 -  Solution URL: [https://github.com/johnsiner/sneakers](https://github.com/johnsiner/sneakers)
--  Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-  Live Site URL: [https://jay-sneakers.netlify.app/](https://jay-sneakers.netlify.app/)
 
 ## My process
 
