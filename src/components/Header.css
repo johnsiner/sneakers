@@ -1,0 +1,170 @@
+header {
+   display: flex;
+   position: relative;
+   justify-content: space-between;
+   margin-top: 10px;
+   margin-inline: clamp(1.5rem, 2vw, 3rem);
+   border-bottom: 2px solid;
+   border-color: hsla(0, 0%, 0%, .05);
+}
+
+header .left {
+   display: flex;
+   gap: 40px;
+}
+
+header .menu,
+.close-menu {
+   display: none;
+}
+
+nav ul {
+   display: flex;
+   list-style: none;
+   gap: 25px;
+   margin: 0;
+   padding: 0;
+}
+
+nav ul li {
+   padding-bottom: 35px;
+   color: var(--text-light);
+   border-bottom: 4px solid;
+   border-color: white;
+}
+
+nav ul li:hover {
+   cursor: pointer;
+   color: var(--text-dark);
+   border-color: var(--clr-primary);
+}
+
+header .right {
+   display: flex;
+   gap: 30px;
+   align-items: center;
+   height: fit-content;
+}
+
+.cart-icon {
+   cursor: pointer;
+   position: relative;
+}
+
+
+.cart-icon p {
+   position: absolute;
+   top: -6px;
+   left: 8px;
+   padding: 0 6px;
+   border-radius: 20px;
+   font-size: 10px;
+   color: white;
+   background-color: var(--clr-primary);
+}
+
+
+.avatar {
+   width: 40px;
+   border-radius: 50%;
+}
+
+.avatar:hover {
+   cursor: pointer;
+   border: 2px solid var(--clr-primary);
+}
+
+
+.bump {
+   animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+   0% {
+      transform: scale(1);
+   }
+
+   10% {
+      transform: scale(0.9);
+   }
+
+   30% {
+      transform: scale(1.13);
+   }
+
+   50% {
+      transform: scale(1.19);
+   }
+
+   100% {
+      transform: scale(1);
+   }
+}
+
+@media(max-width: 700px) {
+
+   .nav-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: black;
+      opacity: .75;
+   }
+
+   header .menu,
+   .close-menu {
+      display: block;
+   }
+
+   header .menu:hover,
+   .close-menu:hover {
+      cursor: pointer;
+   }
+
+   header {
+      border: none;
+      align-items: center;
+   }
+
+   header .left {
+      align-items: center;
+      gap: 15px;
+   }
+
+   .avatar {
+      width: 30px;
+   }
+
+   nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+      min-height: 100vh;
+      padding: 1.5rem;
+      width: 15rem;
+      background-color: white;
+      transform: translateX(-100%);
+      transition: all 200ms linear;
+   }
+
+   nav.opened {
+      transform: translateX(0);
+   }
+
+   nav ul {
+      flex-direction: column;
+      gap: 30px;
+      margin-top: 50px;
+   }
+
+   nav ul li {
+      padding: 0;
+      border: none;
+      color: var(--text-dark);
+      font-weight: 700;
+   }
+}
