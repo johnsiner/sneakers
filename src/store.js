@@ -28,10 +28,12 @@ const cartReducer = (state, action) => {
          } else {
             updatedCart = state.cart.concat(action.payload);
          }
+         localStorage.setItem('cart', JSON.stringify(updatedCart));
          return { ...state, cart: updatedCart };
       }
       case 'REMOVE_CART_ITEM': {
          const updatedCart = state.cart.filter((item) => item.id !== action.id);
+         localStorage.setItem('cart', JSON.stringify(updatedCart));
          return { ...state, cart: updatedCart };
       }
 
@@ -41,7 +43,12 @@ const cartReducer = (state, action) => {
 };
 
 const CartContextProvider = (props) => {
-   const defaultCartState = { cartIsShown: false, cart: [] };
+   const defaultCartState = {
+      cartIsShown: false,
+      cart: localStorage.getItem('cart')
+         ? JSON.parse(localStorage.getItem('cart'))
+         : [],
+   };
    const [cartState, dispatchAction] = useReducer(
       cartReducer,
       defaultCartState
